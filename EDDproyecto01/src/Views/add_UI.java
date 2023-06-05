@@ -159,13 +159,15 @@ public class add_UI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR: Tiene que existir al menos un ID en el grafo para poder crear la relacion");
         }else{
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(UI.selectedFile.getPath(), true))) {
-            writer.write("\n");
-            writer.write(array_rel[0] + ", " + array_rel[1] + ", " + array_rel[2]);
-        } catch (IOException e) {
-            e.printStackTrace();
+                writer.write("\n");
+                writer.write(array_rel[0] + ", " + array_rel[1] + ", " + array_rel[2]);
+                JOptionPane.showMessageDialog(null, "Relación agregada exitosamente!");
+                FileHandling.readFile(UI.selectedFile, UI.graph);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            dispose();
         }
-        dispose();
-    }
             
     }//GEN-LAST:event_addButtonActionPerformed
 

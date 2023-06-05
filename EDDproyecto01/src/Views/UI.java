@@ -158,13 +158,15 @@ public class UI extends javax.swing.JFrame {
         }
 //        dispose();
     }//GEN-LAST:event_modifyTXTActionPerformed
-
+    private JFrame frame;
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Create the JGraphX graph object
         if (flag) {
             mxGraph mxGraph = new mxGraph();
             Object parent = mxGraph.getDefaultParent();
+            FileHandling.readFile(UI.selectedFile, UI.graph);
 
             // Add vertices to the graph
             int numVertices = UI.graph.getVertices().size();
@@ -193,10 +195,15 @@ public class UI extends javax.swing.JFrame {
             layout.execute(parent);
 
             // Display the graph in a JFrame
-            JFrame frame = new JFrame("Graph Visualization");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            if (frame != null) {
+                frame.getContentPane().removeAll(); // Elimina los componentes existentes
+            } else {
+                frame = new JFrame("Graph Visualization");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Permite cerrar la ventana
+            }
+
             mxGraphComponent graphComponent = new mxGraphComponent(mxGraph);
-            frame.getContentPane().add(graphComponent);
+            frame.getContentPane().add(graphComponent); // Agrega el nuevo componente del grafo
             frame.pack();
             frame.setVisible(true);
         } else {
