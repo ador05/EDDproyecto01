@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package eddproyecto01;
+package disconnectedgraph;
 
 /**
  *
- * @author olvei
+ * @author mariavictoriadasilva
  */
-public class EDDproyecto01 {
+public class DisconnectedGraph {
 
     /**
      * @param args the command line arguments
